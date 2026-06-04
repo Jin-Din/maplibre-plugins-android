@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 声明一个自定义属性集合 -->
+    <declare-styleable name="ZoomInOutView">
+        <!-- 按钮颜色 -->
+        <attr name="buttonColor" format="color" />
+        <!-- 按钮大小（dp） -->
+        <attr name="buttonSize" format="dimension" />
+        <!-- 是否显示缩放级别文字 -->
+        <attr name="showZoomLevel" format="boolean" />
+        <!-- 缩放步长 -->
+        <attr name="zoomStep" format="float" />
+        <!-- 按钮间距离 -->
+        <attr name="buttonSpacing" format="dimension" />
+        <!-- 背景圆角 -->
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+
+</resources>

@@ -1,6 +1,7 @@
 package org.maplibre.android.plugins.umap.tool;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -12,8 +13,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import org.jetbrains.annotations.Nullable;
-import org.maplibre.android.camera.CameraUpdateFactory;
-import org.maplibre.android.maps.MapLibreMap;
 import org.maplibre.android.maps.MapView;
 import org.maplibre.android.plugins.umap.R;
 
@@ -42,18 +41,35 @@ public class ZoomInOutView extends LinearLayout {
 
     // 标准构造函数 - 必须提供
     public ZoomInOutView(Context context) {
-        super(context);
-        init(context, null);
+        this(context, null);
+
     }
     // 标准构造函数 - 必须提供（XML 布局使用）
     public ZoomInOutView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
+        this(context, attrs, 0);
     }
     // 标准构造函数 - 必须提供
     public ZoomInOutView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+
+        // 自定义的属性，通过xml 传递过来的属性
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ZoomInOutView);
+
+
+//        buttonColor = ta.getColor(R.styleable.ZoomInOutView_buttonColor,
+//                ContextCompat.getColor(context, android.R.color.black));
+//        buttonSize = ta.getDimension(R.styleable.ZoomInOutView_buttonSize,
+//                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics()));
+//        showZoomLevel = ta.getBoolean(R.styleable.ZoomInOutView_showZoomLevel, true);
+//        zoomStep = ta.getFloat(R.styleable.ZoomInOutView_zoomStep, 1.0f);
+//        buttonSpacing = ta.getDimension(R.styleable.ZoomInOutView_buttonSpacing,
+//                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()));
+//        cornerRadius = ta.getDimension(R.styleable.ZoomInOutView_cornerRadius,
+//                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()));
+
+        ta.recycle(); // 必须回收
+
+        initView(context, attrs);
     }
 
     /**
@@ -82,7 +98,7 @@ public class ZoomInOutView extends LinearLayout {
     }
 
     // 初始化布局
-    private void init(Context context, AttributeSet attrs) {
+    private void initView(Context context, AttributeSet attrs) {
 
         // 设置垂直排列
         setOrientation(VERTICAL);
