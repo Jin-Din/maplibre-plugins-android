@@ -26,7 +26,15 @@ def isSnapshot() {
 }
 
 private static def getReleaseVersion(String version) {
-    return version.substring(1)
+//    return version.substring(1)
+    // 修改后：增加空值防护
+    if (version != null && !version.isEmpty()) {
+        def someVar = version.substring(1)
+    } else {
+        // 设置一个默认值或者打印日志并跳过
+        def someVar = "default_value"
+        println "警告：someString 为空，使用了默认值。"
+    }
 }
 
 private static def getSnapshotVersion(String version) {

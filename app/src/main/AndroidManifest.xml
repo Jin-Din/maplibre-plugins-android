@@ -4,6 +4,9 @@
 
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.INTERNET" /> <!-- 请求访问使用照相设备 -->
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+
 
   <application
           android:name="org.maplibre.android.plugins.testapp.PluginApplication"
@@ -13,6 +16,7 @@
           android:roundIcon="@mipmap/ic_launcher_round"
           android:supportsRtl="true"
           android:theme="@style/AppTheme"
+      android:networkSecurityConfig="@xml/network_security_config"
           tools:ignore="AllowBackup,GoogleAppIndexingWarning">
     <activity android:name="org.maplibre.android.plugins.testapp.activity.FeatureOverviewActivity"
         android:exported="true">
@@ -236,6 +240,18 @@
       <meta-data
               android:name="android.support.PARENT_ACTIVITY"
               android:value="org.maplibre.android.plugins.testapp.activity.FeatureOverviewActivity" />
+    </activity>
+
+    <activity
+        android:name="org.maplibre.android.plugins.testapp.activity.zoominout.ZoomInOutActivity"
+        android:description="@string/description_zoominout"
+        android:label="@string/title_zoominout">
+      <meta-data
+          android:name="@string/category"
+          android:value="@string/category_zoominout" />
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="org.maplibre.android.plugins.testapp.activity.FeatureOverviewActivity" />
     </activity>
 
     <service

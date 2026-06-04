@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.maplibre.android.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--   缩放工具     -->
+        <org.maplibre.android.plugins.umap.tool.ZoomInOutView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="10dp"
+            tools:ignore="RtlHardcoded" />
+    </org.maplibre.android.maps.MapView>
+
+    <!--    <TextView-->
+    <!--            android:id="@+id/draggable_position_tv"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:visibility="gone"/>-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/btn_measure_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测距"
+            tools:ignore="MissingConstraints">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_measure_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="面积"
+            tools:ignore="MissingConstraints">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_measure_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="停止"
+            tools:ignore="MissingConstraints">
+
+        </Button>
+    </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorAccent"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/ic_layers" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

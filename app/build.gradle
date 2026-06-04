@@ -97,6 +97,9 @@ dependencies {
   implementation project(':plugin-markerview')
   implementation project(':ktx-mapbox-maps')
   implementation project(':plugin-scalebar')
+//  implementation project(':plugin-zoominout')
+  implementation project(':plugin-umap')
+
 }
 
 apply from: "${rootDir}/gradle/checkstyle.gradle"
